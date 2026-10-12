@@ -1,8 +1,8 @@
 class Zidev < Formula
   desc "Sidebar of Claude Code sessions, grouped by project, on tmux"
   homepage "https://github.com/zinoodev85/zidev"
-  url "https://github.com/zinoodev85/zidev/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "48d622f031f25b9d5bfb4062e67377847a055bb50ec91cc47f10d7ecf3c6595b"
+  url "https://github.com/zinoodev85/zidev/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "a25b5b029029a885bece2ff17397dd2ef7ae9b787ad95c06c95802eccbc1b58d"
   license "MIT"
 
   depends_on "bat"
@@ -17,10 +17,16 @@ class Zidev < Formula
   depends_on "ripgrep"
   depends_on "tmux"
 
+  # the app, ready built (Apple silicon and Intel): nothing to compile, no Command Line Tools
+  resource "app" do
+    url "https://github.com/zinoodev85/zidev/releases/download/v0.1.2/zidev-app.zip"
+    sha256 "7d7710b3c4c3ffdaefa88e73a0630a3ccb251881de7dd048f4ba8de819dc6c42"
+  end
+
   def install
-    # zidev.app, built here: macOS runs an app built on this Mac without an Apple signature
-    system "app/build.sh"
-    prefix.install "app/build/zidev.app"
+    # brew does not quarantine what a formula downloads: macOS opens the app without an Apple signature;
+    # brew unpacks the zip into the app itself
+    resource("app").stage { (prefix/"zidev.app").install "Contents" }
     python = formula_opt_bin("python@3.14")/"python3.14"
     inreplace "zidev", /\A#!.*$/, "#!#{python}"
     libexec.install "zidev", "tmux.conf", "intent.md"
