@@ -1,8 +1,8 @@
 class Zidev < Formula
   desc "Sidebar of Claude Code sessions, grouped by project, on tmux"
   homepage "https://github.com/zinoodev85/zidev"
-  url "https://github.com/zinoodev85/zidev/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "a25b5b029029a885bece2ff17397dd2ef7ae9b787ad95c06c95802eccbc1b58d"
+  url "https://github.com/zinoodev85/zidev/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "4d9e8855a0ebf8b32c4fc886ae00086fce66ca2078ff43c9d024de96fdbafb75"
   license "MIT"
 
   depends_on "bat"
@@ -19,8 +19,8 @@ class Zidev < Formula
 
   # the app, ready built (Apple silicon and Intel): nothing to compile, no Command Line Tools
   resource "app" do
-    url "https://github.com/zinoodev85/zidev/releases/download/v0.1.2/zidev-app.zip"
-    sha256 "7d7710b3c4c3ffdaefa88e73a0630a3ccb251881de7dd048f4ba8de819dc6c42"
+    url "https://github.com/zinoodev85/zidev/releases/download/v0.1.3/zidev-app.zip"
+    sha256 "58616d720afd5c59b58421f433ac321740a8fb14835386365dd978e431ace040"
   end
 
   def install
