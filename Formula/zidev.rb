@@ -2,7 +2,7 @@ class Zidev < Formula
   desc "Sidebar of Claude Code sessions, grouped by project, on tmux"
   homepage "https://github.com/zinoodev85/zidev"
   url "https://github.com/zinoodev85/zidev/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "SHA256"
+  sha256 "70b682282504130c17bf1c448f4e72e1023946fc235b1c6bd185bf1cdf9ab558"
   license "MIT"
 
   depends_on "bat"
